@@ -3,6 +3,8 @@ import BlobbySection from '../components/BlobbySection.astro';
 import { buildImagePropsFromSrc } from '../utils';
 
 const niceBikesLogo = 'Asset_3_5nvkHQq-Y.png';
+const velocioLogo =
+  'https://cdn.shopify.com/s/files/1/1871/8709/t/20/assets/Velocio_Brand_Wordmark_Black.svg?v=64960705925669185861641296160';
 ---
 
 <BlobbySection
@@ -20,11 +22,18 @@ const niceBikesLogo = 'Asset_3_5nvkHQq-Y.png';
         loading="lazy"
       />
     </a>
+    <a href="https://velocio.cc">
+      <img class="logo velocio" src={velocioLogo} loading="lazy" />
+    </a>
   </div>
 </BlobbySection>
 <style>
   .sponsor {
     color: var(--color-dark);
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .logo {
@@ -33,6 +42,12 @@ const niceBikesLogo = 'Asset_3_5nvkHQq-Y.png';
 
   .logo.nice {
     rotate: -10deg;
+  }
+
+  .velocio {
+    rotate: 15deg;
+    transform: translate(0, -3vw);
+    height: -webkit-fill-available;
   }
 
   a {
