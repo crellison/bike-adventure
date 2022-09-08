@@ -1,0 +1,16 @@
+---
+import { blobPath, blobPathProps, blobSvgProps } from '../data/blobPath';
+
+export interface Props {
+  /** Any number over the available count of blobs will render the last blob */
+  blob: keyof typeof blobPath;
+  className?: string;
+  pathFill?: string;
+}
+
+const { blob, className, pathFill } = Astro.props;
+---
+
+<svg class={className} {...blobSvgProps}>
+  <path fill={pathFill} d={blobPath[blob]} {...blobPathProps}></path>
+</svg>

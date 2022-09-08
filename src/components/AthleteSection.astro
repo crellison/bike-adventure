@@ -1,0 +1,91 @@
+---
+export interface Props {
+  athletes: Array<{
+    name: string;
+    image: string;
+    description: string;
+    social: string;
+  }>;
+}
+
+import Blob from './Blob.astro';
+import BlobMask from './BlobMask.astro';
+const { athletes } = Astro.props;
+// This needs to route to an athlete profile page of some sort
+---
+
+<section class="grid">
+  {
+    athletes.map(({ name, image, description, social }, index) => {
+      const blobNum = (index % 4) as 0 | 1 | 2 | 3;
+      const blobBgNum = ((index + 2) % 4) as 0 | 1 | 2 | 3;
+      return (
+        <div class="tile">
+          <div class="profile-container">
+            <BlobMask
+              src={image}
+              className="profile"
+              blobNum={blobNum}
+              sizes="30vw"
+            />
+            <Blob
+              blob={blobBgNum}
+              className="background"
+              pathFill="var(--color-yellow)"
+            />
+          </div>
+          <h2>{name}</h2>
+          <p>{description}</p>
+          <a href={`https://instagram.com/${social}`}>@{social}</a>
+        </div>
+      );
+    })
+  }
+</section>
+<style>
+  .tile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .profile-container {
+    position: relative;
+  }
+
+  .profile {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .background {
+    width: 23vw;
+    height: 23vw;
+    position: absolute;
+    top: 0.5vh;
+    left: 3vw;
+    z-index: -1;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .profile,
+  .background {
+    transition: transform 0.5s;
+  }
+
+  .profile:hover {
+    transform: scale(1.2);
+  }
+
+  .profile:hover ~ .background {
+    transform: scale(1.5);
+  }
+</style>

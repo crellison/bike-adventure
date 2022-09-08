@@ -1,0 +1,50 @@
+{
+  "name": "@example/basics",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crellison/bike-adventure.git"
+  },
+  "author": "Cole Ellison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crellison/bike-adventure/issues"
+  },
+  "homepage": "https://github.com/crellison/bike-adventure#readme",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^1.1.5"
+  },
+  "devDependencies": {
+    "eslint": "8.23.0",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "commitizen": "^4.2.5",
+    "dprint": "^0.31.1",
+    "eslint-plugin-import": "^2.26.0",
+    "lint-staged": "^13.0.3",
+    "simple-git-hooks": "^2.8.0"
+  },
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx,cjs,mjs,json}": [
+      "pnpm format"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "lint-staged",
+    "commit-message": "commitlint --edit $1"
+  },
+  "packageManager": "pnpm@7.8.0"
+}

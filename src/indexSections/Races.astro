@@ -1,0 +1,99 @@
+---
+import BlobMask from '../components/BlobMask.astro';
+import { races } from '../data/races';
+
+const mattUpcoming = Object.values(races)
+  .filter((race) => {
+    return race.matt;
+  })
+  .sort((a, b) => (a.end < b.end ? -1 : 1));
+
+const coleUpcoming = Object.values(races)
+  .filter((race) => {
+    return race.cole;
+  })
+  .sort((a, b) => (a.end < b.end ? -1 : 1));
+---
+
+<section class="grid">
+  <div class="images">
+    <BlobMask
+      blobNum={1}
+      src="20220827_Powers_VermontOverland_0057_w7un3gwXI.jpg"
+      className="racer"
+      sizes="40vw"
+    />
+    <BlobMask
+      blobNum={0}
+      src="20220827_Powers_VermontOverland_0065_oGXgT9CDI.jpg"
+      className="racer"
+      sizes="40vw"
+    />
+  </div>
+  <div class="calendar">
+    <h2>Fall Race Calendar</h2>
+    <p class="matt">Matt</p>
+    <ul>
+      {mattUpcoming.map((race) => <li>{race.name}</li>)}
+    </ul>
+    <p class="cole">Cole</p>
+    <ul>
+      {coleUpcoming.map((race) => <li>{race.name}</li>)}
+    </ul>
+    <script>
+      import { races } from '../data/races';
+      document.querySelectorAll('.calendar ul li').forEach((element) => {
+        const raceName = element.innerHTML;
+        if (races[raceName].end < new Date()) {
+          element.classList.add('past-race');
+        }
+      });
+    </script>
+  </div>
+</section>
+<style>
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .racer {
+    max-width: 40vw;
+    max-height: 40vw;
+  }
+
+  .images {
+    display: flex;
+    flex-direction: row;
+  }
+
+  li {
+    width: max-content;
+    position: relative;
+  }
+
+  .cole {
+    color: var(--color-yellow);
+  }
+
+  .matt {
+    color: var(--color-red);
+  }
+
+  .past-race {
+    text-decoration: line-through var(--color-red) 0.3em;
+  }
+
+  @media (min-width: 750px) {
+    .images {
+      flex-direction: column;
+    }
+
+    .grid {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .racer {
+      max-width: 20em;
+    }
+  }
+</style>

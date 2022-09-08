@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AthleteSection from '../components/AthleteSection.astro';
+import BlobbySection from '../components/BlobbySection.astro';
+import { athletes } from '../data/athletes.js';
+import Sponsors from '../indexSections/Sponsors.astro';
+import Races from '../indexSections/Races.astro';
+---
+
+<Layout title="The big adventure">
+  <header>
+    <h2>
+      <span class="cole">Cole</span> & <span class="matt">Matt's</span> Big Adventure
+    </h2>
+    <p>A privateer-ish gravel & cyclocross program</p>
+  </header>
+  <AthleteSection athletes={athletes} />
+  <Sponsors />
+  <Races />
+  <BlobbySection
+    backgroundColor="var(--color-red-dark)"
+    blobColor="var(--color-red)"
+    className="results"
+  >
+    <h2>2022 Results</h2>
+
+    <p>Gravel</p>
+
+    <ul>
+      <li>1st Grinduro PA SS</li>
+      <li>2nd IRR SS</li>
+      <li>10th Rooted VT Elite Men</li>
+      <li>9th Overland Elite Men</li>
+    </ul>
+
+    <p>Cyclocross</p>
+
+    <ul>
+      <li>3rd White Park CX SS</li>
+    </ul>
+  </BlobbySection>
+  <section class="contact">
+    <a href="https://github.com/crellison/bike-adventure">
+      <img
+        src="https://github.githubassets.com/images/modules/site/icons/footer/github-mark.svg"
+        loading="lazy"
+      />
+    </a>
+    <a href="mailto:racing@coleandmatt.bikes">Say hi!</a>
+  </section>
+</Layout>
+
+<style>
+  :root {
+    --team-gradient: linear-gradient(
+      15deg,
+      var(--color-yellow),
+      var(--color-red)
+    );
+  }
+
+  h1 {
+    margin: 2rem 0;
+  }
+
+  header {
+    background-color: var(--color-red);
+    color: var(--color-light);
+    display: flex;
+    padding: 0 2vw;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  main {
+    margin: auto;
+    padding: 1em;
+    max-width: 80ch;
+  }
+
+  .results {
+    color: var(--color-light);
+  }
+
+  .contact {
+    display: flex;
+    background: var(--color-dark);
+    justify-content: space-between;
+  }
+</style>

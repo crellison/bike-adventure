@@ -1,0 +1,47 @@
+---
+import BlobbySection from '../components/BlobbySection.astro';
+import { buildImagePropsFromSrc } from '../utils';
+
+const niceBikesLogo = 'Asset_3_5nvkHQq-Y.png';
+---
+
+<BlobbySection
+  backgroundColor="var(--color-yellow)"
+  blobColor="var(--color-yellow-dark)"
+  className="sponsor"
+>
+  <h2>Supported By</h2>
+  <div class="grid">
+    <a href="https://nicebikes.org">
+      <img
+        class="logo nice"
+        {...buildImagePropsFromSrc(niceBikesLogo)}
+        sizes="50vw"
+        loading="lazy"
+      />
+    </a>
+  </div>
+</BlobbySection>
+<style>
+  .sponsor {
+    color: var(--color-dark);
+  }
+
+  .logo {
+    max-width: 50vw;
+  }
+
+  .logo.nice {
+    rotate: -10deg;
+  }
+
+  a {
+    width: fit-content;
+  }
+
+  @media (min-width: 622px) {
+    .logo {
+      max-width: 30vw;
+    }
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+export interface Props {
+  src: string;
+  blobNum: 0 | 1 | 2 | 3;
+  className?: string;
+  sizes: string;
+}
+
+import { base64Blobs } from '../data/blobPath';
+import { buildImagePropsFromSrc } from '../utils';
+const { src, blobNum, className, sizes } = Astro.props;
+const imgProps = buildImagePropsFromSrc(src);
+---
+
+<img
+  {...imgProps}
+  class={`mask ${className}`}
+  style={{
+    '-webkitMaskImage': `url(${base64Blobs[blobNum]})`,
+    maskImage: `url(${base64Blobs[blobNum]})`,
+  }}
+  sizes={sizes}
+/>
+<style>
+  .mask {
+    object-fit: cover;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+  }
+</style>

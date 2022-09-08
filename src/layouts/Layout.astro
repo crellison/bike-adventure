@@ -1,0 +1,118 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  </head>
+  <body>
+    <slot />
+    <style>
+      :root {
+        --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+        --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+        --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+
+        --color-dark: #1b181a;
+        --color-light: antiquewhite;
+        /* --color-light: #fbfef9; */
+        --color-yellow: #fbb13c;
+        --color-yellow-dark: #dc8904;
+        --color-red: #d00000;
+        --color-red-dark: #a30000;
+      }
+
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/fonts/webfonts/JetBrainsMono-Regular.woff2')
+          format('woff2');
+        font-display: swap;
+        unicode-range: U+0025-00FF;
+      }
+
+      html {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: var(--font-size-base);
+        color: var(--color-dark);
+        background-color: var(--color-light);
+      }
+
+      body {
+        margin: 0;
+      }
+    </style>
+
+    <style is:global>
+      h1 {
+        font-size: var(--font-size-xl);
+      }
+      h2,
+      button {
+        font-size: var(--font-size-lg);
+      }
+      section {
+        padding: 3vw 5vw;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        gap: 1rem;
+      }
+
+      button {
+        font-family: 'JetBrains Mono', monospace;
+        border: medium solid var(--color-red);
+        border-radius: 5px;
+        background: none;
+      }
+
+      button,
+      a {
+        text-decoration: none;
+        color: var(--color-red);
+      }
+      button,
+      a:visited {
+        color: var(--color-red-dark);
+      }
+      button:hover,
+      a:hover {
+        background: linear-gradient(
+          90deg,
+          var(--color-red),
+          var(--color-yellow)
+        );
+        background-size: 400% 400%;
+        animation: link-wave 3s ease infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      @keyframes link-wave {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </body>
+</html>
