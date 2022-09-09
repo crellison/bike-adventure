@@ -72,7 +72,7 @@ const coleUpcoming = Object.values(races)
   }
 
   .cole {
-    color: var(--color-yellow);
+    color: var(--color-yellow-dark);
   }
 
   .matt {
@@ -80,7 +80,9 @@ const coleUpcoming = Object.values(races)
   }
 
   .past-race {
-    text-decoration: line-through var(--color-red) 0.3em;
+    text-decoration: line-through;
+    text-decoration-color: var(--color-red);
+    text-decoration-thickness: 0.3em;
   }
 
   @media (min-width: 750px) {

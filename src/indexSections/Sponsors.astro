@@ -33,30 +33,26 @@ const velocioLogo =
   }
 
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .logo {
-    max-width: 50vw;
+    width: 40vw;
   }
-
-  .logo.nice {
-    rotate: -10deg;
-  }
-
   .velocio {
-    rotate: 15deg;
-    transform: translate(0, -3vw);
-    height: -webkit-fill-available;
+    transform: translate(0, 1vw);
   }
 
   a {
     width: fit-content;
   }
 
-  @media (min-width: 622px) {
+  @media (min-width: 750px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
     .logo {
-      max-width: 30vw;
+      max-width: 25vw;
     }
   }
 </style>
