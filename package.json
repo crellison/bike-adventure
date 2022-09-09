@@ -18,7 +18,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "ghp": "rm -rf dist && pnpm build && gh-pages -d dist -b gh-pages"
+    "ghp": "rm -rf dist && pnpm build && cp CNAME dist && gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "astro": "^1.1.5"
