@@ -17,12 +17,6 @@ export const races: Record<string, Race> = {
     matt: true,
     end: new Date('2022-08-28'),
   },
-  "NECX SS Series (15 events)": {
-    name: "NECX SS Series (15 events)",
-    cole: true,
-    start: new Date('2022-08-27'),
-    end: new Date('2022-12-03'),
-  },
   "Grand Prix Beverly": {
     name: "Grand Prix Beverly",
     matt: true,
@@ -30,8 +24,74 @@ export const races: Record<string, Race> = {
   },
   "Deer Farm CX": {
     name: "Deer Farm CX",
+    cole: true,
     matt: true,
-    end: new Date('2022-09-17'),
+    end: new Date('2022-09-17')
+  },
+  "Night Weasels": {
+    name: "Night Weasels",
+    cole: true,
+    end: new Date('2022-10-01')
+  },
+  "Green Mountain CX": {
+    name: "Green Mountain CX",
+    cole: true,
+    end: new Date('2022-10-08')
+  },
+  "Minuteman Road Club CX": {
+    name: "Minuteman Road Club CX",
+    cole: true,
+    end: new Date('2022-10-09')
+  },
+  "Crosstobeerfest": {
+    name: "Crosstobeerfest",
+    cole: true,
+    end: new Date('2022-10-12')
+  },
+  "Bosscross": {
+    name: "Bosscross",
+    cole: true,
+    end: new Date('2022-10-15')
+  },
+  "Mansfield CX": {
+    name: "Mansfield CX",
+    cole: true,
+    end: new Date('2022-10-16')
+  },
+  "Midnight Ride": {
+    name: "Midnight Ride",
+    cole: true,
+    end: new Date('2022-10-22')
+  },
+  "Belltown CX": {
+    name: "Belltown CX",
+    cole: true,
+    end: new Date('2022-10-23'),
+  },
+  "Chesire CX": {
+    name: "Chesire CX",
+    cole: true,
+    end: new Date('2022-10-29'),
+  },
+  "West Hill": {
+    name: "West Hill",
+    cole: true,
+    end: new Date('2022-10-30'),
+  },
+  "Secret Squirrel": {
+    name: "Secret Squirrel",
+    cole: true,
+    end: new Date('2022-11-19'),
+  },
+  "Crossburg": {
+    name: "Crossburg Hill",
+    cole: true,
+    end: new Date('2022-11-26'),
+  },
+  "Ice Weasels": {
+    name: "Ice Weasels",
+    cole: true,
+    end: new Date('2022-12-03'),
   },
   "Rochester CX": {
     name: "Rochester CX",
